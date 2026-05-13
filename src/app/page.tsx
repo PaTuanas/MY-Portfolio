@@ -5,6 +5,7 @@ import CloudinaryImage from "@/components/CloudinaryImage";
 import Floating from "@/components/Floating";
 import Sticker from "@/components/Sticker";
 import TradingCard from "@/components/TradingCard";
+import MagneticIcon from "@/components/MagneticIcon";
 
 export default function Home() {
   const projects = getAllProjectsMeta();
@@ -252,14 +253,13 @@ export default function Home() {
         {/* =========================================
             SECTION: EXPERIENCE
             ========================================= */}
-        <section id="experience" className="px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="experience" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
-          {/* Tiêu đề & Icon Hoa (Dùng lại cách bố trí của Education) */}
           <FadeIn>
             <div className="flex items-center justify-center lg:justify-start gap-4 mb-12 md:mb-20">
               <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png" // Lấy lại link ảnh bông hoa ở trên
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
                   alt="Flower Decor"
                   fill
                   className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
@@ -321,6 +321,123 @@ export default function Home() {
                   className="object-cover"
                 />
               </TradingCard>
+            </FadeIn>
+
+          </div>
+        </section>
+
+        {/* =========================================
+            SECTION: PERSONAL SKILLS
+            ========================================= */}
+        <section id="skill" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+
+          {/* Tiêu đề & Icon Hoa */}
+          <FadeIn>
+            <div className="flex items-center justify-center lg:justify-start gap-4 mb-10 md:mb-16">
+              <div className="relative w-12 h-12 md:w-16 md:h-16">
+                <CloudinaryImage
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
+                  alt="Flower Decor"
+                  fill
+                  className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
+                />
+              </div>
+              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">
+                Personal Skills
+              </h2>
+            </div>
+          </FadeIn>
+
+          <div className="flex flex-col gap-8">
+
+            {/* BOX 1: Các kỹ năng mềm */}
+            <FadeIn delay={0.2}>
+              {/* Khung viền gradient bo tròn giống thiết kế */}
+              <div className="w-full rounded-3xl border-2 border-[#b5a3cc]/60 bg-white/30 backdrop-blur-sm p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+
+                  {/* Cột trái */}
+                  <ul className="space-y-4 text-base md:text-xl text-[#e84976] font-medium">
+                    <li className="flex items-start">
+                      <span className="mr-3 mt-1 text-2xl leading-none">•</span>
+                      <span>Teamwork and cross-functional collaboration</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 mt-1 text-2xl leading-none">•</span>
+                      <span>Negotiation, communication and presentation</span>
+                    </li>
+                  </ul>
+
+                  {/* Cột phải */}
+                  <ul className="space-y-4 text-base md:text-xl text-[#e84976] font-medium">
+                    <li className="flex items-start">
+                      <span className="mr-3 mt-1 text-2xl leading-none">•</span>
+                      <span>Event planning and organization</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 mt-1 text-2xl leading-none">•</span>
+                      <span>Advertising and branding</span>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* BOX 2: TOOLS (Công cụ) */}
+            <FadeIn delay={0.4}>
+              <div className="w-full rounded-3xl border-2 border-[#b5a3cc]/60 bg-white/30 backdrop-blur-sm p-8 md:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-sm hover:shadow-md transition-shadow">
+
+                {/* Text giới thiệu */}
+                <div className="space-y-2">
+                  <h3 className="text-3xl md:text-4xl font-bold text-[#e84976]">Tools:</h3>
+                  <div className="flex items-start text-base md:text-xl text-[#e84976] font-medium">
+                    <span className="mr-3 mt-1 text-2xl leading-none">•</span>
+                    <span>Use tools to support your work:</span>
+                  </div>
+                </div>
+
+                {/* Khu vực chứa Icon có hiệu ứng Nam Châm */}
+                <div className="flex flex-wrap items-center gap-4 md:gap-8 justify-center w-full lg:w-auto">
+
+                  {/* Icon Canva */}
+                  <MagneticIcon>
+                    <div className="relative w-16 h-16 md:w-20 md:h-20 drop-shadow-md">
+                      <CloudinaryImage
+                        src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689342/Portfolio_compo15_vme7ze.png"
+                        alt="Canva"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </MagneticIcon>
+
+                  {/* Icon Logo 2 */}
+                  <MagneticIcon>
+                    <div className="relative w-16 h-16 md:w-20 md:h-20 drop-shadow-md">
+                      <CloudinaryImage
+                        src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689446/Portfolio_compo16_rxtluy.png"
+                        alt="Tool 2"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </MagneticIcon>
+
+                  {/* Icon Google Workspace */}
+                  <MagneticIcon>
+                    <div className="relative w-32 h-12 md:w-40 md:h-16 drop-shadow-md">
+                      <CloudinaryImage
+                        src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689341/Portfolio_compo17_qv4rmb.png"
+                        alt="Google Workspace"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </MagneticIcon>
+
+                </div>
+              </div>
             </FadeIn>
 
           </div>
