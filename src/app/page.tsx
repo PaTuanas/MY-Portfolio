@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import Floating from "@/components/Floating";
 import Sticker from "@/components/Sticker";
+import TradingCard from "@/components/TradingCard";
 
 export default function Home() {
   const projects = getAllProjectsMeta();
@@ -14,7 +15,7 @@ export default function Home() {
 
       <main className="flex-1 w-full overflow-hidden">
 
-        <section id="hero" className="w-full flex flex-col px-0">
+        <section id="hero" className="w-full flex flex-col px-0 md:py-8">
           <FadeIn className="w-full">
 
             <div className="relative w-full h-70 md:h-[50vh] xl:h-[85vh] overflow-hidden">
@@ -94,8 +95,10 @@ export default function Home() {
           </FadeIn>
         </section>
 
-        {/* Updated Page Title and Description */}
-        <section id="about" className="py-10 md:py-16 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        {/* =========================================
+            SECTION: WHO AM I
+            ========================================= */}
+        <section id="about" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
           <FadeIn>
             <h2 className="text-5xl md:text-7xl font-extrabold text-center mb-16 tracking-wide text-[#e84976]">
               Who Am I?
@@ -115,10 +118,6 @@ export default function Home() {
                   className="object-contain drop-shadow-xl scale-[1.2] pointer-events-none"
                 />
               </Sticker>
-
-              <p className="text-center text-[#2d4669]/60 text-xs mt-10 md:mt-16 font-mono">
-                Capturing moments...
-              </p>
             </div>
 
             {/* Cột phải: Text giới thiệu */}
@@ -142,11 +141,11 @@ export default function Home() {
         {/* =========================================
             SECTION: EDUCATION
             ========================================= */}
-        <section id="education" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="education" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
           {/* Tiêu đề & Icon Hoa */}
           <FadeIn>
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-16 md:mb-24">
+            <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-8">
               <div className="relative w-10 h-10 md:w-14 md:h-14">
                 <CloudinaryImage
                   src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
@@ -246,6 +245,83 @@ export default function Home() {
               </Sticker>
 
             </div>
+
+          </div>
+        </section>
+
+        {/* =========================================
+            SECTION: EXPERIENCE
+            ========================================= */}
+        <section id="experience" className="px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+
+          {/* Tiêu đề & Icon Hoa (Dùng lại cách bố trí của Education) */}
+          <FadeIn>
+            <div className="flex items-center justify-center lg:justify-start gap-4 mb-12 md:mb-20">
+              <div className="relative w-12 h-12 md:w-16 md:h-16">
+                <CloudinaryImage
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png" // Lấy lại link ảnh bông hoa ở trên
+                  alt="Flower Decor"
+                  fill
+                  className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
+                />
+              </div>
+              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">
+                Experience
+              </h2>
+            </div>
+          </FadeIn>
+
+          {/* GRID: Chứa 4 thẻ bài */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+
+            {/* Thẻ 1: Nghiêng trái -3 độ */}
+            <FadeIn delay={0.1}>
+              <TradingCard rotate={-3}>
+                <CloudinaryImage
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo11_oqaw8b.png"
+                  alt="Experience EVIA"
+                  fill
+                  // object-contain giúp ảnh giữ đúng tỉ lệ, không bị méo hay cắt mất viền
+                  className="object-cover"
+                />
+              </TradingCard>
+            </FadeIn>
+
+            {/* Thẻ 2: Nghiêng phải 2 độ */}
+            <FadeIn delay={0.2}>
+              <TradingCard rotate={2}>
+                <CloudinaryImage
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687698/Portfolio_compo12_p8twr1.png"
+                  alt="Experience VIVERSE"
+                  fill
+                  className="object-cover"
+                />
+              </TradingCard>
+            </FadeIn>
+
+            {/* Thẻ 3: Nghiêng trái -2 độ */}
+            <FadeIn delay={0.3}>
+              <TradingCard rotate={-2}>
+                <CloudinaryImage
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo13_sygla4.png"
+                  alt="Experience TG"
+                  fill
+                  className="object-cover"
+                />
+              </TradingCard>
+            </FadeIn>
+
+            {/* Thẻ 4: Nghiêng phải 3 độ */}
+            <FadeIn delay={0.4}>
+              <TradingCard rotate={3}>
+                <CloudinaryImage
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo14_cxgtkn.png"
+                  alt="Experience GEARMENT"
+                  fill
+                  className="object-cover"
+                />
+              </TradingCard>
+            </FadeIn>
 
           </div>
         </section>
