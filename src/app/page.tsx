@@ -147,12 +147,12 @@ export default function Home() {
           {/* Tiêu đề & Icon Hoa */}
           <FadeIn>
             <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-8">
-              <div className="relative w-10 h-10 md:w-14 md:h-14">
+              <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage
                   src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
                   alt="Flower Decor"
                   fill
-                  className="object-contain drop-shadow-md"
+                  className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
                 />
               </div>
               <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">
@@ -442,7 +442,69 @@ export default function Home() {
 
           </div>
         </section>
+        {/* =========================================
+            SECTION: BRANDS
+            ========================================= */}
+        <section id="brand" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
+          {/* Tiêu đề & Icon Hoa */}
+          <FadeIn>
+            <div className="flex items-center justify-center lg:justify-start gap-4 mb-10 md:mb-16">
+              <div className="relative w-12 h-12 md:w-16 md:h-16">
+                <CloudinaryImage
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
+                  alt="Flower Decor"
+                  fill
+                  className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
+                />
+              </div>
+              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">
+                Brands
+              </h2>
+            </div>
+          </FadeIn>
+
+          {/* Khung chứa các Logo */}
+          <FadeIn delay={0.2}>
+            <div className="w-full rounded-3xl border-2 border-[#b5a3cc]/60 bg-white/30 backdrop-blur-sm p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow">
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 items-center justify-items-center">
+
+                {[
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691664/Portfolio_compo18_qgsniv.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691665/Portfolio_compo19_v5ehjx.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691749/Portfolio_compo33_s7whyg.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691743/Portfolio_compo21_ha94n6.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691744/Portfolio_compo22_q7l6vn.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691744/Portfolio_compo23_vkuh45.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691745/Portfolio_compo24_cug8hv.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691745/Portfolio_compo25_bi2uqx.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691746/Portfolio_compo26_syehtj.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691746/Portfolio_compo27_zoirze.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691747/Portfolio_compo28_qzobxk.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691748/Portfolio_compo29_p5xch8.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691748/Portfolio_compo30_lr5s8v.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691749/Portfolio_compo31_oz4nkp.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778691749/Portfolio_compo32_yleq35.png",
+                ].map((logoUrl, index) => (
+                  <div
+                    key={index}
+                    className="relative w-24 h-12 md:w-32 md:h-16 group cursor-pointer"
+                  >
+                    <CloudinaryImage
+                      src={logoUrl}
+                      alt={`Brand Partner ${index + 1}`}
+                      fill
+                      // Hiệu ứng: Mặc định xám (grayscale) và mờ 60%. Hover vào thì xóa xám, rõ 100% và to lên 10%.
+                      className="object-contain filter grayscale opacity-60 transition-all duration-300 ease-in-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 group-hover:drop-shadow-lg"
+                    />
+                  </div>
+                ))}
+
+              </div>
+            </div>
+          </FadeIn>
+        </section>
         {/* SECTION: DỰ ÁN */}
         <section id="projects" className="py-16 md:py-24 px-6 md:px-12 lg:px-24">
           <FadeIn>
