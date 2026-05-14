@@ -1,4 +1,3 @@
-import { getAllProjectsMeta } from "@/lib/mdx";
 import Navbar from "@/components/Navbar";
 import FadeIn from "@/components/FadeIn";
 import CloudinaryImage from "@/components/CloudinaryImage";
@@ -6,10 +5,9 @@ import Floating from "@/components/Floating";
 import Sticker from "@/components/Sticker";
 import TradingCard from "@/components/TradingCard";
 import MagneticIcon from "@/components/MagneticIcon";
+import ProjectSlider from "@/components/ProjectSlider";
 
 export default function Home() {
-  const projects = getAllProjectsMeta();
-
   return (
     <div className="flex min-h-screen">
       <Navbar />
@@ -505,41 +503,41 @@ export default function Home() {
             </div>
           </FadeIn>
         </section>
-        {/* SECTION: DỰ ÁN */}
-        <section id="projects" className="py-16 md:py-24 px-6 md:px-12 lg:px-24">
+
+        {/* =========================================
+            SECTION: PROJECTS
+            ========================================= */}
+        <section id="projects" className="py-16 md:py-24 px-4 md:px-8 lg:px-16 w-full max-w-350 mx-auto">
+
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-16 border-b border-stone-300 pb-4 text-stone-900">
-              Dự án tiêu biểu
-            </h2>
+            <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
+              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976] mb-4">
+                Projects
+              </h2>
+              <p className="text-center text-[#2d4669] text-base md:text-xl max-w-2xl font-medium">
+                A showcase of highlighted events, campaigns, and experiences I have proudly contributed to.
+              </p>
+            </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-            {projects.map((project, index) => (
-              <FadeIn key={project.slug} delay={index * 0.2}>
-                <div className="group relative rounded-2xl overflow-hidden bg-white/30 hover:bg-white/60 transition-colors border border-stone-300/50 shadow-sm backdrop-blur-sm">
-                  <div className="h-56 md:h-64 w-full relative">
-                    <CloudinaryImage
-                      src={project.coverImage}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+          <FadeIn delay={0.2} className="w-full">
+            {/* Đưa danh sách link 10 ảnh của bạn vào đây */}
+            <ProjectSlider
+              images={[
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778776588/Project_gzcnmd.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778776588/Project_1_e5gvz4.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778776588/Project_2_vwtq0t.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778777604/Project_3_ejypbh.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778777604/Project_4_zwgsmz.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778777604/Project_3_ejypbh.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778777604/Project_3_ejypbh.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778777604/Project_3_ejypbh.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778777604/Project_3_ejypbh.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778777604/Project_3_ejypbh.png",
+              ]}
+            />
+          </FadeIn>
 
-                  <div className="p-6">
-                    <div className="text-sm text-emerald-600 mb-2 font-mono">{project.date}</div>
-                    <h3 className="text-xl md:text-2xl font-semibold mb-3 text-stone-900 group-hover:text-stone-600 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-stone-600">
-                      {project.description}
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
         </section>
 
         {/* SECTION: LIÊN HỆ */}
