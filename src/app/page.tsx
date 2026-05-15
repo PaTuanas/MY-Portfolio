@@ -327,7 +327,7 @@ export default function Home() {
         {/* =========================================
             SECTION: PERSONAL SKILLS
             ========================================= */}
-        <section id="skill" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="skill" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
           {/* Tiêu đề & Icon Hoa */}
           <FadeIn>
@@ -443,7 +443,7 @@ export default function Home() {
         {/* =========================================
             SECTION: BRANDS
             ========================================= */}
-        <section id="brand" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="brand" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
           {/* Tiêu đề & Icon Hoa */}
           <FadeIn>
@@ -507,7 +507,7 @@ export default function Home() {
         {/* =========================================
             SECTION: PROJECTS
             ========================================= */}
-        <section id="projects" className="py-16 md:py-24 px-4 md:px-8 lg:px-16 w-full max-w-350 mx-auto">
+        <section id="projects" className="py-5 md:py-8 px-4 md:px-8 lg:px-16 w-full max-w-350 mx-auto">
 
           <FadeIn>
             <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
