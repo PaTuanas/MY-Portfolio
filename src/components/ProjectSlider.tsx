@@ -28,7 +28,6 @@ const variants = {
     },
 };
 
-// Hàm tính toán lực vuốt (để phân biệt giữa việc chạm nhầm và vuốt thật sự)
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
     return Math.abs(offset) * velocity;
@@ -37,7 +36,12 @@ const swipePower = (offset: number, velocity: number) => {
 export default function ProjectSlider({ images }: { images: string[] }) {
     const [[page, direction], setPage] = useState([0, 0]);
 
+    // Index của ảnh ĐANG HIỂN THỊ
     const imageIndex = Math.abs(page % images.length);
+
+    // TÍNH TOÁN INDEX ĐỂ TẢI TRƯỚC (Preload)
+    const nextIndex = (imageIndex + 1) % images.length;
+    const prevIndex = (imageIndex - 1 + images.length) % images.length;
 
     const paginate = (newDirection: number) => {
         setPage([page + newDirection, newDirection]);
@@ -45,6 +49,16 @@ export default function ProjectSlider({ images }: { images: string[] }) {
 
     return (
         <div className="relative w-full aspect-video rounded-2xl md:rounded-4xl overflow-hidden bg-white/40 shadow-xl border-4 border-white/60 group flex items-center justify-center">
+
+            {/* =========================================
+          SMART PRELOADER (TẢI NGẦM)
+          Tạo ra 1 khung kích thước 0x0 tàng hình. Trình duyệt sẽ tự động 
+          kéo ảnh số 2 và ảnh cuối cùng về lưu sẵn trong bộ nhớ đệm (Cache).
+          ========================================= */}
+            <div className="absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none -z-10">
+                <CloudinaryImage src={images[nextIndex]} alt="preload-next" fill priority sizes="100vw" />
+                <CloudinaryImage src={images[prevIndex]} alt="preload-prev" fill priority sizes="100vw" />
+            </div>
 
             <AnimatePresence initial={false} custom={direction}>
                 <motion.div
@@ -58,19 +72,14 @@ export default function ProjectSlider({ images }: { images: string[] }) {
                         x: { type: "spring", stiffness: 300, damping: 30 },
                         opacity: { duration: 0.2 },
                     }}
-                    // BẬT TÍNH NĂNG KÉO THẢ (DRAG)
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={1}
                     onDragEnd={(e, { offset, velocity }) => {
                         const swipe = swipePower(offset.x, velocity.x);
-
-                        // Nếu vuốt mạnh sang trái -> Chuyển ảnh tiếp theo
                         if (swipe < -swipeConfidenceThreshold) {
                             paginate(1);
-                        }
-                        // Nếu vuốt mạnh sang phải -> Quay lại ảnh trước đó
-                        else if (swipe > swipeConfidenceThreshold) {
+                        } else if (swipe > swipeConfidenceThreshold) {
                             paginate(-1);
                         }
                     }}
@@ -80,8 +89,9 @@ export default function ProjectSlider({ images }: { images: string[] }) {
                         src={images[imageIndex]}
                         alt={`Project slide ${imageIndex + 1}`}
                         fill
+                        // Luôn đặt priority={true} cho ảnh đang hiện để trình duyệt bơm thẳng từ Cache ra
+                        priority
                         className="object-contain pointer-events-none"
-                    // Thêm pointer-events-none vào ảnh để tránh lỗi trình duyệt tự động bắt sự kiện kéo ảnh mặc định
                     />
                 </motion.div>
             </AnimatePresence>
