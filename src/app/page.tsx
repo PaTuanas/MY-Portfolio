@@ -1,11 +1,16 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import FadeIn from "@/components/FadeIn";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import Floating from "@/components/Floating";
-import Sticker from "@/components/Sticker";
+// import Sticker from "@/components/Sticker";
 import TradingCard from "@/components/TradingCard";
 import MagneticIcon from "@/components/MagneticIcon";
 import ProjectSlider from "@/components/ProjectSlider";
+import InteractiveCamera from "@/components/InteractiveCamera";
+import { motion } from "framer-motion";
+import Sticker from "@/components/Sticker";
 
 export default function Home() {
   return (
@@ -106,31 +111,40 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* Cột trái: Máy ảnh 3D */}
+            {/* Cột trái: Máy ảnh */}
             <div className="w-full max-w-md lg:max-w-lg mx-auto flex flex-col items-center">
 
-              <Sticker className="aspect-video">
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778659649/Portfolio_compo7_tb2vty.png"
-                  alt="Digital Camera Profile"
-                  fill
-                  className="object-contain drop-shadow-xl scale-[1.2] pointer-events-none"
+              {/* MOBILE: Hiển thị Máy ảnh tương tác (Tap) */}
+              <div className="block md:hidden w-full">
+                <InteractiveCamera
+                  cameraFrameUrl="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778659649/Portfolio_compo7_tb2vty.png" // Thay bằng Khung rỗng
+                  images={[
+                    "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png",
+                    "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo11_oqaw8b.png"
+                  ]}
                 />
-              </Sticker>
+              </div>
+
+              {/* DESKTOP: Hiển thị Sticker (Hover) như cũ */}
+              <div className="hidden md:block w-full">
+                <Sticker className="aspect-video">
+                  <CloudinaryImage
+                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778659649/Portfolio_compo7_tb2vty.png"
+                    alt="Digital Camera Profile"
+                    fill
+                    className="object-contain drop-shadow-xl scale-[1.2] pointer-events-none"
+                  />
+                </Sticker>
+              </div>
+
             </div>
 
-            {/* Cột phải: Text giới thiệu */}
+            {/* Cột phải: Text giới thiệu (Giữ nguyên) */}
             <FadeIn delay={0.4}>
               <div className="space-y-6 text-[#2d4669] text-base md:text-xl leading-relaxed font-medium">
-                <p>
-                  Hello, my name is <strong className="font-bold">Uyển My</strong>, but you can also call me <strong className="font-bold">Mimi</strong>.
-                </p>
-                <p>
-                  As an outgoing and communicative Event Marketing, I easily build strong connections with both clients and partners.
-                </p>
-                <p>
-                  Backed by confidence and negotiation skills, I am committed to bringing practical and sustainable value to your organization. I am always eager to learn, adapt, and embrace new experiences to create impactful projects.
-                </p>
+                <p>Hello, my name is <strong className="font-bold">Uyển My</strong>, but you can also call me <strong className="font-bold">Mimi</strong>.</p>
+                <p>As an outgoing and communicative Event Marketing, I easily build strong connections with both clients and partners.</p>
+                <p>Backed by confidence and negotiation skills, I am committed to bringing practical and sustainable value to your organization. I am always eager to learn, adapt, and embrace new experiences to create impactful projects.</p>
               </div>
             </FadeIn>
 
@@ -142,20 +156,12 @@ export default function Home() {
             ========================================= */}
         <section id="education" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
-          {/* Tiêu đề & Icon Hoa */}
           <FadeIn>
             <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-8">
               <div className="relative w-12 h-12 md:w-16 md:h-16">
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
-                  alt="Flower Decor"
-                  fill
-                  className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
-                />
+                <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png" alt="Flower Decor" fill className="object-contain drop-shadow-md hover:rotate-12 transition-transform" />
               </div>
-              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">
-                Education
-              </h2>
+              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">Education</h2>
             </div>
           </FadeIn>
 
@@ -163,68 +169,69 @@ export default function Home() {
 
             {/* CỘT TRÁI: TIMELINE */}
             <FadeIn delay={0.2} className="relative w-full">
-
               <div className="absolute left-5 md:left-6 top-0 bottom-0 w-0.5 bg-[#2d4669] -translate-x-1/2 z-0"></div>
-
               <div className="absolute left-5 md:left-6 top-0 w-3.5 h-3.5 border-2 border-[#2d4669] bg-[#f7e9c3] rotate-45 -translate-x-1/2 -translate-y-1/2 z-10"></div>
               <div className="absolute left-5 md:left-6 bottom-0 w-3.5 h-3.5 border-2 border-[#2d4669] bg-[#f7e9c3] rotate-45 -translate-x-1/2 translate-y-1/2 z-10"></div>
 
               <div className="space-y-16 py-10">
 
-                {/* Cột mốc 1: Thạc sĩ */}
-                <div className="relative z-10 flex gap-6 md:gap-8 items-start group">
-                  <div className="w-10 md:w-12 shrink-0 flex justify-center mt-4">
-                    <div className="relative w-10 h-10 md:w-12 md:h-12 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent group-hover:border-pink-400 group-hover:scale-110 transition-all duration-300">
-                      <CloudinaryImage
-                        src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664937/Portfolio_compo10_t39nyd.png"
-                        alt="Graduation Cap"
-                        fill
-                        className="object-contain p-1.5 drop-shadow-sm"
-                      />
+                {/* --- CỘT MỐC 1 --- */}
+                {/* MOBILE (Cuộn tới đâu sáng tới đó) */}
+                <motion.div initial={{ opacity: 0.5, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative z-10 md:hidden flex gap-6 items-start">
+                  <div className="w-10 shrink-0 flex justify-center mt-4">
+                    <motion.div whileInView={{ borderColor: "#f472b6", scale: 1.15 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative w-10 h-10 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent transition-all duration-500">
+                      <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664937/Portfolio_compo10_t39nyd.png" alt="Cap" fill className="object-contain p-1.5" />
+                    </motion.div>
+                  </div>
+                  <div className="flex-1 text-[#2d4669]">
+                    <p className="text-right text-sm font-semibold opacity-70 font-mono">2024 - Present</p>
+                    <motion.h3 whileInView={{ color: "#e84976" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-xl font-extrabold mb-1 transition-colors duration-500">MBA- Master of Business Administration</motion.h3>
+                    <p className="text-base font-medium opacity-80">Van Lang University</p>
+                  </div>
+                </motion.div>
+
+                {/* DESKTOP (Hover như cũ) */}
+                <div className="relative z-10 hidden md:flex gap-8 items-start group">
+                  <div className="w-12 shrink-0 flex justify-center mt-4">
+                    <div className="relative w-12 h-12 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent group-hover:border-pink-400 group-hover:scale-110 transition-all duration-300">
+                      <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664937/Portfolio_compo10_t39nyd.png" alt="Cap" fill className="object-contain p-1.5" />
                     </div>
                   </div>
-
                   <div className="flex-1 text-[#2d4669]">
-                    <p className="text-right text-sm md:text-base font-semibold opacity-70 font-mono">
-                      2024 - Present
-                    </p>
-                    <h3 className="text-xl md:text-2xl font-extrabold mb-1 group-hover:text-[#e84976] transition-colors">
-                      MBA- Master of Business Administration
-                    </h3>
-                    <p className="text-base md:text-lg font-medium opacity-80">
-                      Van Lang University
-                    </p>
+                    <p className="text-right text-base font-semibold opacity-70 font-mono">2024 - Present</p>
+                    <h3 className="text-2xl font-extrabold mb-1 group-hover:text-[#e84976] transition-colors">MBA- Master of Business Administration</h3>
+                    <p className="text-lg font-medium opacity-80">Van Lang University</p>
                   </div>
                 </div>
 
-                {/* Cột mốc 2: Cử nhân */}
-                <div className="relative z-10 flex gap-6 md:gap-8 items-start group">
-                  {/* Cột cố định chứa Icon */}
-                  <div className="w-10 md:w-12 shrink-0 flex justify-center mt-4">
-                    <div className="relative w-10 h-10 md:w-12 md:h-12 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent group-hover:border-pink-400 group-hover:scale-110 transition-all duration-300">
-                      <CloudinaryImage
-                        src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664937/Portfolio_compo10_t39nyd.png"
-                        alt="Graduation Cap"
-                        fill
-                        className="object-contain p-1.5 drop-shadow-sm"
-                      />
+                {/* --- CỘT MỐC 2 --- */}
+                {/* MOBILE */}
+                <motion.div initial={{ opacity: 0.5, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative z-10 md:hidden flex gap-6 items-start">
+                  <div className="w-10 shrink-0 flex justify-center mt-4">
+                    <motion.div whileInView={{ borderColor: "#f472b6", scale: 1.15 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative w-10 h-10 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent transition-all duration-500">
+                      <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664937/Portfolio_compo10_t39nyd.png" alt="Cap" fill className="object-contain p-1.5" />
+                    </motion.div>
+                  </div>
+                  <div className="flex-1 text-[#2d4669]">
+                    <p className="text-right text-sm font-semibold opacity-70 font-mono">2020 - 2024</p>
+                    <motion.h3 whileInView={{ color: "#e84976" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-xl font-extrabold mb-1 transition-colors duration-500">Marketing Management</motion.h3>
+                    <p className="text-base font-medium opacity-80">Van Lang University</p>
+                    <p className="text-base font-bold mt-2 text-[#e84976]">GPA: 3.10/4</p>
+                  </div>
+                </motion.div>
+
+                {/* DESKTOP */}
+                <div className="relative z-10 hidden md:flex gap-8 items-start group">
+                  <div className="w-12 shrink-0 flex justify-center mt-4">
+                    <div className="relative w-12 h-12 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent group-hover:border-pink-400 group-hover:scale-110 transition-all duration-300">
+                      <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664937/Portfolio_compo10_t39nyd.png" alt="Cap" fill className="object-contain p-1.5" />
                     </div>
                   </div>
-
-                  {/* Nội dung text */}
                   <div className="flex-1 text-[#2d4669]">
-                    <p className="text-right text-sm md:text-base font-semibold opacity-70 font-mono">
-                      2020 - 2024
-                    </p>
-                    <h3 className="text-xl md:text-2xl font-extrabold mb-1 group-hover:text-[#e84976] transition-colors">
-                      Marketing Management
-                    </h3>
-                    <p className="text-base md:text-lg font-medium opacity-80">
-                      Van Lang University
-                    </p>
-                    <p className="text-base md:text-lg font-bold mt-2 text-[#e84976]">
-                      GPA: 3.10/4
-                    </p>
+                    <p className="text-right text-base font-semibold opacity-70 font-mono">2020 - 2024</p>
+                    <h3 className="text-2xl font-extrabold mb-1 group-hover:text-[#e84976] transition-colors">Marketing Management</h3>
+                    <p className="text-lg font-medium opacity-80">Van Lang University</p>
+                    <p className="text-lg font-bold mt-2 text-[#e84976]">GPA: 3.10/4</p>
                   </div>
                 </div>
 
@@ -233,16 +240,19 @@ export default function Home() {
 
             {/* CỘT PHẢI: HÌNH LỚN SCRAPBOOK */}
             <div className="w-full max-w-sm lg:max-w-md mx-auto flex flex-col items-center mt-5 lg:mt-0">
+              {/* MOBILE: Hiệu ứng Lơ lửng chậm */}
+              <div className="block md:hidden w-full">
+                <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="relative w-full aspect-4/5">
+                  <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png" alt="Graduation" fill className="object-contain drop-shadow-2xl pointer-events-none scale-[1.3]" />
+                </motion.div>
+              </div>
 
-              <Sticker className="aspect-4/5">
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png"
-                  alt="Graduation Portrait"
-                  fill
-                  className="object-contain drop-shadow-2xl pointer-events-none scale-[1.8]"
-                />
-              </Sticker>
-
+              {/* DESKTOP: Sticker Hover cũ */}
+              <div className="hidden md:block w-full">
+                <Sticker className="aspect-4/5">
+                  <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png" alt="Graduation Portrait" fill className="object-contain drop-shadow-2xl pointer-events-none scale-[1.8]" />
+                </Sticker>
+              </div>
             </div>
 
           </div>
@@ -398,41 +408,46 @@ export default function Home() {
                 {/* Khu vực chứa Icon có hiệu ứng Nam Châm */}
                 <div className="flex flex-wrap items-center gap-4 md:gap-8 justify-center w-full lg:w-auto">
 
-                  {/* Icon Canva */}
-                  <MagneticIcon>
-                    <div className="relative w-16 h-16 md:w-20 md:h-20 drop-shadow-md">
-                      <CloudinaryImage
-                        src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689342/Portfolio_compo15_vme7ze.png"
-                        alt="Canva"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </MagneticIcon>
+                  <div className="flex flex-wrap items-center gap-4 md:gap-8 justify-center w-full lg:w-auto">
 
-                  {/* Icon Logo 2 */}
-                  <MagneticIcon>
-                    <div className="relative w-16 h-16 md:w-20 md:h-20 drop-shadow-md">
-                      <CloudinaryImage
-                        src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689446/Portfolio_compo16_rxtluy.png"
-                        alt="Tool 2"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </MagneticIcon>
+                    {/* Icon Canva */}
+                    <MagneticIcon>
+                      {/* Thêm animate-pulse trên mobile, tắt trên md */}
+                      <div className="relative w-16 h-16 md:w-20 md:h-20 drop-shadow-md animate-pulse md:animate-none">
+                        <CloudinaryImage
+                          src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689342/Portfolio_compo15_vme7ze.png"
+                          alt="Canva"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </MagneticIcon>
 
-                  {/* Icon Google Workspace */}
-                  <MagneticIcon>
-                    <div className="relative w-32 h-12 md:w-40 md:h-16 drop-shadow-md">
-                      <CloudinaryImage
-                        src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689341/Portfolio_compo17_qv4rmb.png"
-                        alt="Google Workspace"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </MagneticIcon>
+                    {/* Icon Logo 2 */}
+                    <MagneticIcon>
+                      <div className="relative w-16 h-16 md:w-20 md:h-20 drop-shadow-md animate-pulse md:animate-none" style={{ animationDelay: '0.5s' }}>
+                        <CloudinaryImage
+                          src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689446/Portfolio_compo16_rxtluy.png"
+                          alt="Tool 2"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </MagneticIcon>
+
+                    {/* Icon Google Workspace */}
+                    <MagneticIcon>
+                      <div className="relative w-32 h-12 md:w-40 md:h-16 drop-shadow-md animate-pulse md:animate-none" style={{ animationDelay: '1s' }}>
+                        <CloudinaryImage
+                          src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778689341/Portfolio_compo17_qv4rmb.png"
+                          alt="Google Workspace"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </MagneticIcon>
+
+                  </div>
 
                 </div>
               </div>
@@ -493,9 +508,7 @@ export default function Home() {
                       src={logoUrl}
                       alt={`Brand Partner ${index + 1}`}
                       fill
-                      // Hiệu ứng: Mặc định xám (grayscale) và mờ 60%. Hover vào thì xóa xám, rõ 100% và to lên 10%.
-                      className="object-contain filter grayscale opacity-60 transition-all duration-300 ease-in-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 group-hover:drop-shadow-lg"
-                    />
+                      className="object-contain transition-all duration-300 ease-in-out grayscale-0 opacity-100 md:grayscale md:opacity-60 md:group-hover:grayscale-0 md:group-hover:opacity-100 md:group-hover:scale-110 md:group-hover:drop-shadow-lg" />
                   </div>
                 ))}
 
