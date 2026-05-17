@@ -103,9 +103,9 @@ export default function Home() {
         {/* =========================================
             SECTION: WHO AM I
             ========================================= */}
-        <section id="about" className="py-5 md:py-8 mb-8 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="about" className="py-5 md:py-8 mb-5 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
           <FadeIn>
-            <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
+            <div className="flex flex-col items-center justify-center md:mb-16">
 
               {/* Hàng 1: Icon Hoa + Tiêu đề */}
               <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
@@ -179,21 +179,21 @@ export default function Home() {
               <div className="space-y-16 py-10">
 
                 {/* --- CỘT MỐC 1 --- */}
-                {/* MOBILE (Cuộn tới đâu sáng tới đó) */}
-                <motion.div initial={{ opacity: 0.5, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative z-10 md:hidden flex gap-6 items-start">
-                  <div className="w-10 shrink-0 flex justify-center mt-4">
+                {/* MOBILE: Đổi thành items-center và bỏ mt-4 để icon tự động canh giữa tuyệt đối */}
+                <motion.div initial={{ opacity: 0.5, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative z-10 md:hidden flex gap-4 sm:gap-6 items-center">
+                  <div className="w-10 shrink-0 flex justify-center">
                     <motion.div whileInView={{ borderColor: "#f472b6", scale: 1.15 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative w-10 h-10 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent transition-all duration-500">
                       <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664937/Portfolio_compo10_t39nyd.png" alt="Cap" fill className="object-contain p-1.5" />
                     </motion.div>
                   </div>
-                  <div className="flex-1 text-[#2d4669]">
-                    <p className="text-right text-sm font-semibold opacity-70 font-mono">2024 - Present</p>
-                    <motion.h3 whileInView={{ color: "#d7427c" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-xl font-extrabold mb-1 transition-colors duration-500">MBA- Master of Business Administration</motion.h3>
-                    <p className="text-base font-medium opacity-80">Van Lang University</p>
+                  <div className="flex-1 text-[#2d4669] py-1">
+                    <p className="text-right text-xs font-semibold opacity-70 font-mono mb-1">2024 - Present</p>
+                    <motion.h3 whileInView={{ color: "#d7427c" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-lg sm:text-xl font-extrabold mb-1 transition-colors duration-500 leading-tight">MBA - Master of Business Administration</motion.h3>
+                    <p className="text-sm sm:text-base font-medium opacity-80">Van Lang University</p>
                   </div>
                 </motion.div>
 
-                {/* DESKTOP (Hover như cũ) */}
+                {/* DESKTOP (Giữ nguyên) */}
                 <div className="relative z-10 hidden md:flex gap-8 items-start group">
                   <div className="w-12 shrink-0 flex justify-center mt-4">
                     <div className="relative w-12 h-12 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent group-hover:border-pink-400 group-hover:scale-110 transition-all duration-300">
@@ -202,24 +202,24 @@ export default function Home() {
                   </div>
                   <div className="flex-1 text-[#2d4669]">
                     <p className="text-right text-base font-semibold opacity-70 font-mono">2024 - Present</p>
-                    <h3 className="text-2xl font-extrabold mb-1 group-hover:text-[#d7427c] transition-colors">MBA- Master of Business Administration</h3>
+                    <h3 className="text-2xl font-extrabold mb-1 group-hover:text-[#d7427c] transition-colors">MBA - Master of Business Administration</h3>
                     <p className="text-lg font-medium opacity-80">Van Lang University</p>
                   </div>
                 </div>
 
                 {/* --- CỘT MỐC 2 --- */}
                 {/* MOBILE */}
-                <motion.div initial={{ opacity: 0.5, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative z-10 md:hidden flex gap-6 items-start">
-                  <div className="w-10 shrink-0 flex justify-center mt-4">
+                <motion.div initial={{ opacity: 0.5, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative z-10 md:hidden flex gap-4 sm:gap-6 items-center">
+                  <div className="w-10 shrink-0 flex justify-center">
                     <motion.div whileInView={{ borderColor: "#f472b6", scale: 1.15 }} viewport={{ margin: "-20% 0px -20% 0px" }} className="relative w-10 h-10 bg-[#f7e9c3] flex items-center justify-center rounded-full border-2 border-transparent transition-all duration-500">
                       <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664937/Portfolio_compo10_t39nyd.png" alt="Cap" fill className="object-contain p-1.5" />
                     </motion.div>
                   </div>
-                  <div className="flex-1 text-[#2d4669]">
-                    <p className="text-right text-sm font-semibold opacity-70 font-mono">2020 - 2024</p>
-                    <motion.h3 whileInView={{ color: "#d7427c" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-xl font-extrabold mb-1 transition-colors duration-500">Marketing Management</motion.h3>
-                    <p className="text-base font-medium opacity-80">Van Lang University</p>
-                    <p className="text-base font-bold mt-2 text-[#d7427c]">GPA: 3.10/4</p>
+                  <div className="flex-1 text-[#2d4669] py-1">
+                    <p className="text-right text-xs font-semibold opacity-70 font-mono mb-1">2020 - 2024</p>
+                    <motion.h3 whileInView={{ color: "#d7427c" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-lg sm:text-xl font-extrabold mb-1 transition-colors duration-500 leading-tight">Marketing Management</motion.h3>
+                    <p className="text-sm sm:text-base font-medium opacity-80">Van Lang University</p>
+                    <p className="text-sm sm:text-base font-bold mt-1.5 text-[#d7427c]">GPA: 3.10/4</p>
                   </div>
                 </motion.div>
 
