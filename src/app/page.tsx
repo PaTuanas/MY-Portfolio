@@ -178,7 +178,7 @@ export default function Home() {
               <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png" alt="Flower Decor" fill className="object-contain drop-shadow-md hover:rotate-12 transition-transform" />
               </div>
-              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">Education</h2>
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c] text-center">Education</h2>
             </div>
           </FadeIn>
 
@@ -284,7 +284,7 @@ export default function Home() {
               <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png" alt="Flower Decor" fill className="object-contain drop-shadow-md hover:rotate-12 transition-transform" />
               </div>
-              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c] text-center">
                 Experience
               </h2>
             </div>
@@ -340,7 +340,7 @@ export default function Home() {
                   className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
                 />
               </div>
-              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c] text-center">
                 Personal Skills
               </h2>
             </div>
@@ -461,7 +461,7 @@ export default function Home() {
                   className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
                 />
               </div>
-              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c] text-center">
                 Brands
               </h2>
             </div>
@@ -517,7 +517,7 @@ export default function Home() {
 
               {/* Hàng 1: Icon Hoa + Tiêu đề */}
               <div className="flex items-center gap-3 md:gap-4 mb-4">
-                <div className="relative w-10 h-10 md:w-14 md:h-14 shrink-0">
+                <div className="relative w-12 h-12 md:w-16 md:h-16">
                   <CloudinaryImage
                     src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
                     alt="Flower Decor"
@@ -573,7 +573,7 @@ export default function Home() {
 
               {/* Hàng 1: Icon Hoa + Tiêu đề */}
               <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
-                <div className="relative w-10 h-10 md:w-14 md:h-14 shrink-0">
+                <div className="relative w-12 h-12 md:w-16 md:h-16">
                   <CloudinaryImage
                     src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
                     alt="Flower Decor"
@@ -617,7 +617,7 @@ export default function Home() {
           <FadeIn>
             {/* Tiêu đề & Icon Hoa */}
             <div className="flex items-center justify-center gap-3 md:gap-4 mb-10 md:mb-16">
-              <div className="relative w-10 h-10 md:w-16 md:h-16 shrink-0">
+              <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage
                   src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
                   alt="Flower Decor"
@@ -625,7 +625,7 @@ export default function Home() {
                   className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
                 />
               </div>
-              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c] text-center">
                 Contact me
               </h2>
             </div>
