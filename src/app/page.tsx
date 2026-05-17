@@ -11,6 +11,7 @@ import ProjectSlider from "@/components/ProjectSlider";
 import InteractiveCamera from "@/components/InteractiveCamera";
 import { motion } from "framer-motion";
 import Sticker from "@/components/Sticker";
+import TradingCardMobile from "@/components/TradingCardMobile";
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
             <div className="relative w-full h-70 md:h-[50vh] xl:h-[85vh] overflow-hidden">
 
               {/* LỚP 1: CÁC MẢNG JEAN TRANG TRÍ (DÙNG OBJECT-COVER ĐỂ TRÀN VIỀN) */}
-              <div className="absolute inset-0 z-0 pointer-events-none mt-16">
+              <div className="absolute inset-0 z-0 pointer-events-none">
                 <CloudinaryImage
                   src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778645989/Portfolio_compo2_jnvmjd.png"
                   alt="Decor Left"
@@ -76,7 +77,7 @@ export default function Home() {
               <div className="absolute inset-0 z-30 pointer-events-none">
                 <Floating delay={1}>
                   <CloudinaryImage
-                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778645989/Portfolio_compo5_y6leyt.png"
+                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1779002705/Portfolio_compo5_y6leyt.png"
                     alt="Text TFOLIO"
                     fill
                     className="object-contain object-center"
@@ -102,11 +103,25 @@ export default function Home() {
         {/* =========================================
             SECTION: WHO AM I
             ========================================= */}
-        <section id="about" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="about" className="py-5 md:py-8 mb-8 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
           <FadeIn>
-            <h2 className="text-5xl md:text-7xl font-extrabold text-center mb-16 tracking-wide text-[#e84976]">
-              Who Am I?
-            </h2>
+            <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
+
+              {/* Hàng 1: Icon Hoa + Tiêu đề */}
+              <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
+                <div className="relative w-10 h-10 md:w-14 md:h-14 shrink-0">
+                  <CloudinaryImage
+                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
+                    alt="Flower Decor"
+                    fill
+                    className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
+                  />
+                </div>
+                <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c] text-center">
+                  Who am I
+                </h2>
+              </div>
+            </div>
           </FadeIn>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -114,28 +129,13 @@ export default function Home() {
             {/* Cột trái: Máy ảnh */}
             <div className="w-full max-w-md lg:max-w-lg mx-auto flex flex-col items-center">
 
-              {/* MOBILE: Hiển thị Máy ảnh tương tác (Tap) */}
-              <div className="block md:hidden w-full">
-                <InteractiveCamera
-                  cameraFrameUrl="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778659649/Portfolio_compo7_tb2vty.png" // Thay bằng Khung rỗng
-                  images={[
-                    "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png",
-                    "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo11_oqaw8b.png"
-                  ]}
-                />
-              </div>
-
-              {/* DESKTOP: Hiển thị Sticker (Hover) như cũ */}
-              <div className="hidden md:block w-full">
-                <Sticker className="aspect-video">
-                  <CloudinaryImage
-                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778659649/Portfolio_compo7_tb2vty.png"
-                    alt="Digital Camera Profile"
-                    fill
-                    className="object-contain drop-shadow-xl scale-[1.2] pointer-events-none"
-                  />
-                </Sticker>
-              </div>
+              <InteractiveCamera
+                cameraFrameUrl="https://res.cloudinary.com/dyavs1cdn/image/upload/v1779004163/Portfolio_compo34_xy1xg7.png" // Khung rỗng đã đục lỗ
+                images={[
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo11_oqaw8b.png"
+                ]}
+              />
 
             </div>
 
@@ -154,14 +154,14 @@ export default function Home() {
         {/* =========================================
             SECTION: EDUCATION
             ========================================= */}
-        <section id="education" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="education" className="py-5 md:py-8 mb-10 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
           <FadeIn>
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-8">
+            <div className="flex items-center justify-center gap-4">
               <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png" alt="Flower Decor" fill className="object-contain drop-shadow-md hover:rotate-12 transition-transform" />
               </div>
-              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">Education</h2>
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">Education</h2>
             </div>
           </FadeIn>
 
@@ -185,7 +185,7 @@ export default function Home() {
                   </div>
                   <div className="flex-1 text-[#2d4669]">
                     <p className="text-right text-sm font-semibold opacity-70 font-mono">2024 - Present</p>
-                    <motion.h3 whileInView={{ color: "#e84976" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-xl font-extrabold mb-1 transition-colors duration-500">MBA- Master of Business Administration</motion.h3>
+                    <motion.h3 whileInView={{ color: "#d7427c" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-xl font-extrabold mb-1 transition-colors duration-500">MBA- Master of Business Administration</motion.h3>
                     <p className="text-base font-medium opacity-80">Van Lang University</p>
                   </div>
                 </motion.div>
@@ -199,7 +199,7 @@ export default function Home() {
                   </div>
                   <div className="flex-1 text-[#2d4669]">
                     <p className="text-right text-base font-semibold opacity-70 font-mono">2024 - Present</p>
-                    <h3 className="text-2xl font-extrabold mb-1 group-hover:text-[#e84976] transition-colors">MBA- Master of Business Administration</h3>
+                    <h3 className="text-2xl font-extrabold mb-1 group-hover:text-[#d7427c] transition-colors">MBA- Master of Business Administration</h3>
                     <p className="text-lg font-medium opacity-80">Van Lang University</p>
                   </div>
                 </div>
@@ -214,9 +214,9 @@ export default function Home() {
                   </div>
                   <div className="flex-1 text-[#2d4669]">
                     <p className="text-right text-sm font-semibold opacity-70 font-mono">2020 - 2024</p>
-                    <motion.h3 whileInView={{ color: "#e84976" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-xl font-extrabold mb-1 transition-colors duration-500">Marketing Management</motion.h3>
+                    <motion.h3 whileInView={{ color: "#d7427c" }} viewport={{ margin: "-20% 0px -20% 0px" }} className="text-xl font-extrabold mb-1 transition-colors duration-500">Marketing Management</motion.h3>
                     <p className="text-base font-medium opacity-80">Van Lang University</p>
-                    <p className="text-base font-bold mt-2 text-[#e84976]">GPA: 3.10/4</p>
+                    <p className="text-base font-bold mt-2 text-[#d7427c]">GPA: 3.10/4</p>
                   </div>
                 </motion.div>
 
@@ -229,9 +229,9 @@ export default function Home() {
                   </div>
                   <div className="flex-1 text-[#2d4669]">
                     <p className="text-right text-base font-semibold opacity-70 font-mono">2020 - 2024</p>
-                    <h3 className="text-2xl font-extrabold mb-1 group-hover:text-[#e84976] transition-colors">Marketing Management</h3>
+                    <h3 className="text-2xl font-extrabold mb-1 group-hover:text-[#d7427c] transition-colors">Marketing Management</h3>
                     <p className="text-lg font-medium opacity-80">Van Lang University</p>
-                    <p className="text-lg font-bold mt-2 text-[#e84976]">GPA: 3.10/4</p>
+                    <p className="text-lg font-bold mt-2 text-[#d7427c]">GPA: 3.10/4</p>
                   </div>
                 </div>
 
@@ -239,11 +239,11 @@ export default function Home() {
             </FadeIn>
 
             {/* CỘT PHẢI: HÌNH LỚN SCRAPBOOK */}
-            <div className="w-full max-w-sm lg:max-w-md mx-auto flex flex-col items-center mt-5 lg:mt-0">
+            <div className="w-[65%] md:w-full max-w-65 md:max-w-sm lg:max-w-md mx-auto flex flex-col items-center my-8 md:mt-5 lg:mt-0">
               {/* MOBILE: Hiệu ứng Lơ lửng chậm */}
               <div className="block md:hidden w-full">
                 <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="relative w-full aspect-4/5">
-                  <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png" alt="Graduation" fill className="object-contain drop-shadow-2xl pointer-events-none scale-[1.3]" />
+                  <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png" alt="Graduation" fill className="object-cover drop-shadow-2xl pointer-events-none scale-[1.3]" />
                 </motion.div>
               </div>
 
@@ -261,87 +261,60 @@ export default function Home() {
         {/* =========================================
             SECTION: EXPERIENCE
             ========================================= */}
-        <section id="experience" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
-
+        <section id="experience" className="py-5 md:py-8 mb-8 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
           <FadeIn>
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-12 md:mb-20">
+            <div className="flex items-center justify-center gap-4 mb-12 md:mb-20">
               <div className="relative w-12 h-12 md:w-16 md:h-16">
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
-                  alt="Flower Decor"
-                  fill
-                  className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
-                />
+                <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png" alt="Flower Decor" fill className="object-contain drop-shadow-md hover:rotate-12 transition-transform" />
               </div>
-              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
                 Experience
               </h2>
             </div>
           </FadeIn>
 
-          {/* GRID: Chứa 4 thẻ bài */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+          {/* === GIAO DIỆN MOBILE (Giữ nguyên vuốt tới sáng tới) === */}
+          <div className="grid md:hidden grid-cols-1 sm:grid-cols-2 gap-8">
+            <TradingCardMobile><CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo11_oqaw8b.png" alt="Experience EVIA" fill className="object-cover" /></TradingCardMobile>
+            <TradingCardMobile><CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687698/Portfolio_compo12_p8twr1.png" alt="Experience VIVERSE" fill className="object-cover" /></TradingCardMobile>
+            <TradingCardMobile><CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo13_sygla4.png" alt="Experience TG" fill className="object-cover" /></TradingCardMobile>
+            <TradingCardMobile><CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo14_cxgtkn.png" alt="Experience GEARMENT" fill className="object-cover" /></TradingCardMobile>
+          </div>
 
-            {/* Thẻ 1: Nghiêng trái -3 độ */}
+          {/* === GIAO DIỆN DESKTOP (Gỡ bỏ onClick, Trả về z-0) === */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 relative z-0">
             <FadeIn delay={0.1}>
               <TradingCard rotate={-3}>
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo11_oqaw8b.png"
-                  alt="Experience EVIA"
-                  fill
-                  // object-contain giúp ảnh giữ đúng tỉ lệ, không bị méo hay cắt mất viền
-                  className="object-cover"
-                />
+                <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo11_oqaw8b.png" alt="Experience EVIA" fill className="object-cover" />
               </TradingCard>
             </FadeIn>
-
-            {/* Thẻ 2: Nghiêng phải 2 độ */}
             <FadeIn delay={0.2}>
               <TradingCard rotate={2}>
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687698/Portfolio_compo12_p8twr1.png"
-                  alt="Experience VIVERSE"
-                  fill
-                  className="object-cover"
-                />
+                <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687698/Portfolio_compo12_p8twr1.png" alt="Experience VIVERSE" fill className="object-cover" />
               </TradingCard>
             </FadeIn>
-
-            {/* Thẻ 3: Nghiêng trái -2 độ */}
             <FadeIn delay={0.3}>
               <TradingCard rotate={-2}>
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo13_sygla4.png"
-                  alt="Experience TG"
-                  fill
-                  className="object-cover"
-                />
+                <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo13_sygla4.png" alt="Experience TG" fill className="object-cover" />
               </TradingCard>
             </FadeIn>
-
-            {/* Thẻ 4: Nghiêng phải 3 độ */}
             <FadeIn delay={0.4}>
               <TradingCard rotate={3}>
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo14_cxgtkn.png"
-                  alt="Experience GEARMENT"
-                  fill
-                  className="object-cover"
-                />
+                <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo14_cxgtkn.png" alt="Experience GEARMENT" fill className="object-cover" />
               </TradingCard>
             </FadeIn>
-
           </div>
+
         </section>
 
         {/* =========================================
             SECTION: PERSONAL SKILLS
             ========================================= */}
-        <section id="skill" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="skill" className="py-5 md:py-8 mb-8 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
           {/* Tiêu đề & Icon Hoa */}
           <FadeIn>
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-10 md:mb-16">
+            <div className="flex items-center justify-center gap-4 mb-10 md:mb-16">
               <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage
                   src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
@@ -350,7 +323,7 @@ export default function Home() {
                   className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
                 />
               </div>
-              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
                 Personal Skills
               </h2>
             </div>
@@ -365,7 +338,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
 
                   {/* Cột trái */}
-                  <ul className="space-y-4 text-base md:text-xl text-[#e84976] font-medium">
+                  <ul className="space-y-4 text-base md:text-xl text-[#3a5d8f] font-medium">
                     <li className="flex items-start">
                       <span className="mr-3 mt-1 text-2xl leading-none">•</span>
                       <span>Teamwork and cross-functional collaboration</span>
@@ -377,7 +350,7 @@ export default function Home() {
                   </ul>
 
                   {/* Cột phải */}
-                  <ul className="space-y-4 text-base md:text-xl text-[#e84976] font-medium">
+                  <ul className="space-y-4 text-base md:text-xl text-[#3a5d8f] font-medium">
                     <li className="flex items-start">
                       <span className="mr-3 mt-1 text-2xl leading-none">•</span>
                       <span>Event planning and organization</span>
@@ -398,8 +371,8 @@ export default function Home() {
 
                 {/* Text giới thiệu */}
                 <div className="space-y-2">
-                  <h3 className="text-3xl md:text-4xl font-bold text-[#e84976]">Tools:</h3>
-                  <div className="flex items-start text-base md:text-xl text-[#e84976] font-medium">
+                  <h3 className="text-3xl md:text-4xl font-bold text-[#d7427c]">Tools:</h3>
+                  <div className="flex items-start text-base md:text-xl text-[#3a5d8f] font-medium">
                     <span className="mr-3 mt-1 text-2xl leading-none">•</span>
                     <span>Use tools to support your work:</span>
                   </div>
@@ -458,11 +431,11 @@ export default function Home() {
         {/* =========================================
             SECTION: BRANDS
             ========================================= */}
-        <section id="brand" className="py-5 md:py-8 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
+        <section id="brand" className="py-5 md:py-8 mb-8 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
           {/* Tiêu đề & Icon Hoa */}
           <FadeIn>
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-10 md:mb-16">
+            <div className="flex items-center justify-center gap-4 mb-10 md:mb-16">
               <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage
                   src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
@@ -471,7 +444,7 @@ export default function Home() {
                   className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
                 />
               </div>
-              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976]">
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
                 Brands
               </h2>
             </div>
@@ -520,21 +493,34 @@ export default function Home() {
         {/* =========================================
             SECTION: PROJECTS
             ========================================= */}
-        <section id="projects" className="py-5 md:py-8 px-4 md:px-8 lg:px-16 w-full max-w-350 mx-auto">
+        <section id="projects" className="py-5 md:py-8 mb-8 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
           <FadeIn>
             <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
-              <h2 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976] mb-4">
-                Projects
-              </h2>
-              <p className="text-center text-[#2d4669] text-base md:text-xl max-w-2xl font-medium">
+
+              {/* Hàng 1: Icon Hoa + Tiêu đề */}
+              <div className="flex items-center gap-3 md:gap-4 mb-4">
+                <div className="relative w-10 h-10 md:w-14 md:h-14 shrink-0">
+                  <CloudinaryImage
+                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
+                    alt="Flower Decor"
+                    fill
+                    className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
+                  />
+                </div>
+                <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c] text-center">
+                  Projects
+                </h2>
+              </div>
+
+              {/* Hàng 2: Đoạn mô tả (Canh giữa) */}
+              <p className="text-center text-[#3a5d8f] text-base md:text-xl max-w-2xl font-medium px-4">
                 A showcase of highlighted events, campaigns, and experiences I have proudly contributed to.
               </p>
+
             </div>
           </FadeIn>
-
-          <FadeIn delay={0.2} className="w-full">
-            {/* Đưa danh sách link 10 ảnh của bạn vào đây */}
+          <FadeIn delay={0.2} className="w-full max-w-5xl mx-auto drop-shadow-xl">
             <ProjectSlider
               images={[
                 "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778776588/Project_gzcnmd.png",
@@ -560,14 +546,116 @@ export default function Home() {
           </FadeIn>
 
         </section>
+        {/* =========================================
+            SECTION: SOCIAL CONTENT (Home Slider)
+            ========================================= */}
+        <section id="social" className="py-5 md:py-8 mb-8 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
-        {/* SECTION: LIÊN HỆ */}
-        <section id="contact" className="min-h-[40vh] py-16 md:py-24 px-6 md:px-12 lg:px-24">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-stone-900">Kết nối với tôi</h2>
-            <p className="text-stone-600 text-base md:text-lg">
-              Sẵn sàng thảo luận về các chiến dịch marketing hoặc những dự án mới thú vị.
-            </p>
+            <div className="flex flex-col items-center justify-center mb-10 md:mb-16">
+
+              {/* Hàng 1: Icon Hoa + Tiêu đề */}
+              <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
+                <div className="relative w-10 h-10 md:w-14 md:h-14 shrink-0">
+                  <CloudinaryImage
+                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
+                    alt="Flower Decor"
+                    fill
+                    className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
+                  />
+                </div>
+                <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c] text-center">
+                  Social Content
+                </h2>
+              </div>
+
+              {/* Hàng 2: Đoạn mô tả (Canh giữa) */}
+              <p className="text-center text-[#3a5d8f] text-base md:text-xl max-w-2xl font-medium px-4">
+                Highlighted social media campaigns, community management, and creative assets.
+              </p>
+
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2} className="w-full max-w-5xl mx-auto drop-shadow-xl">
+            <ProjectSlider
+              images={[
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779006630/Cover_ol0gxx.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779006631/Page1_jekkvy.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779006631/Page2_mjm1wv.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779006632/Page3_jni6qf.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779006632/Page4_kieeak.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779006632/Page5_a5xcnq.png",
+                "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779006633/Page6_se3wil.png",
+              ]}
+            />
+          </FadeIn>
+
+        </section>
+        {/* =========================================
+            SECTION: CONTACT ME
+            ========================================= */}
+        <section id="contact" className="py-10 md:py-16 mb-10 md:mb-20 px-6 md:px-12 w-full max-w-7xl mx-auto ">
+
+          <FadeIn>
+            {/* Tiêu đề & Icon Hoa */}
+            <div className="flex items-center justify-center gap-3 md:gap-4 mb-10 md:mb-16">
+              <div className="relative w-10 h-10 md:w-16 md:h-16 shrink-0">
+                <CloudinaryImage
+                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"
+                  alt="Flower Decor"
+                  fill
+                  className="object-contain drop-shadow-md hover:rotate-12 transition-transform"
+                />
+              </div>
+              <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
+                CONTACT ME
+              </h2>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            {/* Khung Card Contact */}
+            <div className="w-full rounded-4xl border-2 border-[#b5a3cc]/60 bg-white/40 backdrop-blur-md p-6 sm:p-8 md:p-12 shadow-lg hover:shadow-xl transition-shadow flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
+
+              {/* Cột trái: Lời chào và Thông tin liên hệ */}
+              <div className="flex flex-col gap-6 md:gap-8 w-full md:w-2/3">
+                <p className="text-[#3a5d8f] text-sm sm:text-base md:text-xl font-medium text-center md:text-left leading-relaxed">
+                  Let's create something amazing together! Feel free to reach out to me for collaborations, campaigns, or just a friendly chat.
+                </p>
+
+                {/* Khu vực thông tin (Bỏ w-fit đi để nó không bị tràn) */}
+                <div className="flex flex-col gap-4 md:gap-5 text-[#d7427c] text-sm sm:text-base md:text-xl font-bold w-full">
+
+                  {/* Dòng 1: Email */}
+                  <a href="mailto:mimi.marketing0304@gmail.com" className="flex items-center gap-3 md:gap-4 hover:translate-x-2 hover:text-pink-600 transition-transform origin-left cursor-pointer group">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#f7e9c3] border-2 border-[#d7427c]/40 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
+                      <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    {/* Thêm break-all trên mobile để email dài tự rớt dòng */}
+                    <span className="break-all md:break-normal">mimi.marketing0304@gmail.com</span>
+                  </a>
+
+                  {/* Dòng 2: Phone */}
+                  <a href="tel:0906989071" className="flex items-center gap-3 md:gap-4 hover:translate-x-2 hover:text-pink-600 transition-transform origin-left cursor-pointer group">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#f7e9c3] border-2 border-[#d7427c]/40 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
+                      <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </div>
+                    <span>0906 989 071</span>
+                  </a>
+
+                  {/* Dòng 3: Location */}
+                  <div className="flex items-center gap-3 md:gap-4 group cursor-default">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#f7e9c3] border-2 border-[#d7427c]/40 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
+                      <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <span>District 12, Ho Chi Minh City</span>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
           </FadeIn>
         </section>
 
