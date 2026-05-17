@@ -37,7 +37,7 @@ export default function ProjectsPage() {
                         <h1 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976] mb-4 text-center">
                             All Projects
                         </h1>
-                        <p className="text-center text-[#2d4669] text-base md:text-xl font-medium max-w-2xl">
+                        <p className="text-center text-[#3a5d8f] text-base md:text-xl font-medium max-w-2xl">
                             Scroll down to explore the details of each event and campaign.
                         </p>
                     </div>
