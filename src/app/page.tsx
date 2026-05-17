@@ -17,7 +17,7 @@ export default function Home() {
     <div className="flex min-h-screen">
       <Navbar />
 
-      <main className="flex-1 w-full overflow-hidden">
+      <main className="flex-1 w-full overflow-hidden mt-16">
 
         {/* =========================================
             SECTION: HERO Y2K PIXAR (3D OVERLAY - COMPACT & CLOSER)
