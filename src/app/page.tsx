@@ -20,9 +20,8 @@ export default function Home() {
       <main className="flex-1 w-full overflow-hidden mt-16">
 
         {/* =========================================
-            SECTION: HERO Y2K PIXAR (3D OVERLAY - COMPACT & CLOSER)
+            SECTION: HERO
             ========================================= */}
-        {/* ĐÃ SỬA: Giảm chiều cao từ 100dvh xuống 85vh và giới hạn max-h-[900px] để cắt khoảng trống thừa */}
         <section className="relative w-full h-[40vh] min-h-70 md:h-[85vh] md:min-h-125 md:max-h-225 overflow-hidden flex flex-col items-center justify-end pb-6 md:pb-8 bg-[#fff1e7]">
 
           {/* LỚP 1: NỀN BACKGROUND ẢNH CARO (z-0) */}
@@ -73,10 +72,7 @@ export default function Home() {
                 }}
                 className={`relative w-[18%] sm:w-[15%] md:w-[14.5%] lg:w-[13.5%] aspect-2/3 drop-shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer ${index < 3 ? 'z-10' : 'z-30'}`}
                 style={{
-                  // THỦ THUẬT: Kéo riêng khoảng cách cho chữ I
-                  // 1. Ép chữ I sát vào chữ L
                   ...(letter.id === 'L' && { marginRight: '-8%' }),
-                  // 2. Ép chữ O sát vào chữ I
                   ...(letter.id === 'I' && { marginRight: '-7%' }),
                 }}
               >
@@ -630,7 +626,7 @@ export default function Home() {
                 />
               </div>
               <h2 className="text-5xl md:text-7xl font-spray tracking-wide text-[#d7427c]">
-                CONTACT ME
+                Contact me
               </h2>
             </div>
           </FadeIn>
