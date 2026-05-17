@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CloudinaryImage from "./CloudinaryImage";
 
-export default function InteractiveCamera({
+export default function AutoCamera({
     cameraFrameUrl,
     images
 }: {
@@ -14,24 +14,21 @@ export default function InteractiveCamera({
     const [index, setIndex] = useState(0);
     const [isBlack, setIsBlack] = useState(false);
 
-    const handleCapture = () => {
-        if (isBlack) return; // Chống spam click
+    useEffect(() => {
+        const slideInterval = setInterval(() => {
+            setIsBlack(true);
+            setTimeout(() => {
+                setIndex((prev) => (prev + 1) % images.length);
+                setIsBlack(false);
+            }, 250);
+        }, 1500);
 
-        // 1. Chớp đen màn hình
-        setIsBlack(true);
-
-        // 2. Chờ 250ms (như tiếng tách của máy ảnh) rồi đổi ảnh
-        setTimeout(() => {
-            setIndex((prev) => (prev + 1) % images.length);
-            setIsBlack(false);
-        }, 250);
-    };
+        return () => clearInterval(slideInterval);
+    }, [images.length]);
 
     return (
-        <div
-            className="relative w-full aspect-video cursor-pointer group touch-manipulation drop-shadow-xl transition-transform duration-300 active:scale-95"
-            onClick={handleCapture}
-        >
+        <div className="relative w-full aspect-video group drop-shadow-xl">
+
             {/* KHU VỰC 1: MÁY ẢNH GỐC (Nằm dưới cùng - z-0) */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <CloudinaryImage
@@ -42,18 +39,14 @@ export default function InteractiveCamera({
                 />
             </div>
 
-            {/* KHU VỰC 2: MÀN HÌNH CHỨA ẢNH (Nằm đè lên trên - z-10) 
-                Vì màn hình máy ảnh Sony nằm lệch sang trái, chúng ta dùng inline-style
-                để ép 4 góc (top, bottom, left, right) cho vừa khít với cục màu đen.
-            */}
+            {/* KHU VỰC 2: MÀN HÌNH CHỨA ẢNH (Nằm đè lên trên - z-10) */}
             <div
                 className="absolute z-10 bg-black overflow-hidden rounded-xs md:rounded-sm"
                 style={{
-                    // BẠN HÃY TINH CHỈNH 4 CON SỐ % NÀY ĐỂ ẢNH LỌT VỪA KHÍT VÀO MÀN HÌNH NHÉ
-                    top: '23%',    // Đẩy từ trên xuống
-                    bottom: '15.5%', // Đẩy từ dưới lên
-                    left: '13%',   // Đẩy từ trái sang
-                    right: '33%' // Đẩy từ phải sang (chừa khoảng trống cho cụm nút bấm)
+                    top: '23%',
+                    bottom: '15.5%',
+                    left: '13%',
+                    right: '33%'
                 }}
             >
                 <motion.div
@@ -61,18 +54,23 @@ export default function InteractiveCamera({
                     transition={{ duration: 0.15 }}
                     className="w-full h-full relative"
                 >
-                    <CloudinaryImage
-                        src={images[index]}
-                        alt={`Camera view ${index + 1}`}
-                        fill
-                        className="object-cover"
-                    />
+                    {/* TRICK PRELOAD: Render toàn bộ ảnh ra nhưng chỉ tấm nào đúng index mới cho hiện opacity-1 */}
+                    {images.map((imgSrc, imgIndex) => (
+                        <div
+                            key={imgSrc}
+                            className={`absolute inset-0 transition-opacity duration-0 ${imgIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                        >
+                            <CloudinaryImage
+                                src={imgSrc}
+                                alt={`Camera view ${imgIndex + 1}`}
+                                fill
+                                // Thêm priority={true} để trình duyệt ưu tiên tải các ảnh này ngay lập tức
+                                priority={true}
+                                className="object-cover"
+                            />
+                        </div>
+                    ))}
                 </motion.div>
-            </div>
-
-            {/* Chữ gợi ý */}
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-bold text-pink-500 animate-bounce whitespace-nowrap">
-                Click / Tap to capture 📸
             </div>
 
         </div>

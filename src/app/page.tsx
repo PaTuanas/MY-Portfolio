@@ -3,7 +3,6 @@
 import Navbar from "@/components/Navbar";
 import FadeIn from "@/components/FadeIn";
 import CloudinaryImage from "@/components/CloudinaryImage";
-import Floating from "@/components/Floating";
 // import Sticker from "@/components/Sticker";
 import TradingCard from "@/components/TradingCard";
 import MagneticIcon from "@/components/MagneticIcon";
@@ -20,84 +19,103 @@ export default function Home() {
 
       <main className="flex-1 w-full overflow-hidden">
 
-        <section id="hero" className="w-full flex flex-col px-0 md:py-8">
-          <FadeIn className="w-full">
+        {/* =========================================
+            SECTION: HERO Y2K PIXAR (3D OVERLAY - COMPACT & CLOSER)
+            ========================================= */}
+        {/* ĐÃ SỬA: Giảm chiều cao từ 100dvh xuống 85vh và giới hạn max-h-[900px] để cắt khoảng trống thừa */}
+        <section className="relative w-full h-[40vh] min-h-70 md:h-[85vh] md:min-h-125 md:max-h-225 overflow-hidden flex flex-col items-center justify-end pb-6 md:pb-8 bg-[#fff1e7]">
 
-            <div className="relative w-full h-70 md:h-[50vh] xl:h-[85vh] overflow-hidden">
+          {/* LỚP 1: NỀN BACKGROUND ẢNH CARO (z-0) */}
+          <div className="absolute inset-0 z-0">
+            <CloudinaryImage
+              src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1779014991/Thi%E1%BA%BFt_k%E1%BA%BF_ch%C6%B0a_c%C3%B3_t%C3%AAn_3_npra8q.png"
+              alt="Checkerboard Background"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+          </div>
 
-              {/* LỚP 1: CÁC MẢNG JEAN TRANG TRÍ (DÙNG OBJECT-COVER ĐỂ TRÀN VIỀN) */}
-              <div className="absolute inset-0 z-0 pointer-events-none">
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778645989/Portfolio_compo2_jnvmjd.png"
-                  alt="Decor Left"
-                  fill
-                  // Ép mảng Jean trái tràn màn hình và bám chặt lề trái
-                  className="object-cover object-left"
-                  priority
-                />
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778645989/Portfolio_compo3_ifdlcu.png"
-                  alt="Decor Right"
-                  fill
-                  // Ép mảng Jean phải bám chặt góc phải dưới
-                  className="object-cover object-bottom-right"
-                />
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778645989/Portfolio_compo1_ehoqcw.png"
-                  alt="Decor Star"
-                  fill
-                  // Ép Ngôi sao bám chặt góc phải trên
-                  className="object-cover object-top-right"
-                />
-              </div>
+          {/* LỚP 2: NHÂN VẬT (Mimi) (z-20 - Nằm GIỮA 2 lớp chữ) */}
+          <div className="absolute inset-0 z-20 w-full h-full flex justify-center items-end pointer-events-none">
+            <CloudinaryImage
+              src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1779014630/Thi%E1%BA%BFt_k%E1%BA%BF_ch%C6%B0a_c%C3%B3_t%C3%AAn_2_pj8ehv.png"
+              alt="Mimi Portrait Foreground"
+              fill
+              className="object-contain object-bottom scale-125 md:scale-[0.95] origin-bottom"
+              priority
+            />
+          </div>
 
-              {/* LỚP 2, 3, 4: CÔ GÁI & TEXT (DÙNG OBJECT-CONTAIN ĐỂ GIỮ CHUẨN TỈ LỆ KHÔNG BỊ CẮT) */}
-              <div className="absolute inset-0 z-10 pointer-events-none">
-                <Floating delay={0}>
+          {/* LỚP 3: DÀN CHỮ "PORTFOLIO" KHỔNG LỒ */}
+          <div className="absolute inset-x-0 bottom-[15%] md:bottom-[20%] w-full max-w-480 mx-auto flex justify-center items-end -space-x-3.75 sm:-space-x-7.5 md:-space-x-12.5 lg:-space-x-20 xl:-space-x-25">
+            {[
+              { id: 'P', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013072/3_jufyn5.png" },
+              { id: 'O1', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013106/11_myoe9m.png" },
+              { id: 'R', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013065/5_xs2gdv.png" },
+              { id: 'T', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013066/6_n3r3l0.png" },
+              { id: 'F', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013114/7_lpgaon.png" },
+              { id: 'O2', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013107/8_xy5ijd.png" },
+              { id: 'L', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013105/9_jdf5fn.png" },
+              { id: 'I', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013105/10_xujpxr.png" },
+              { id: 'O3', src: "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779013066/4_iegqld.png" },
+            ].map((letter, index) => (
+              <motion.div
+                key={letter.id}
+                initial={{ y: -800, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 12,
+                  mass: 1.2,
+                  delay: 0.01 + (index * 0.15)
+                }}
+                className={`relative w-[18%] sm:w-[15%] md:w-[14.5%] lg:w-[13.5%] aspect-2/3 drop-shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-300 cursor-pointer ${index < 3 ? 'z-10' : 'z-30'}`}
+                style={{
+                  // THỦ THUẬT: Kéo riêng khoảng cách cho chữ I
+                  // 1. Ép chữ I sát vào chữ L
+                  ...(letter.id === 'L' && { marginRight: '-8%' }),
+                  // 2. Ép chữ O sát vào chữ I
+                  ...(letter.id === 'I' && { marginRight: '-7%' }),
+                }}
+              >
+                {/* HIỆU ỨNG: Rung rinh lơ lửng sau khi rơi xong */}
+                <motion.div
+                  animate={{
+                    y: [0, -8, 0],
+                    rotate: [0, -2, 2, 0]
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 3,
+                    ease: "easeInOut",
+                    delay: 2.5 + (index * 0.1)
+                  }}
+                  className="w-full h-full relative"
+                >
                   <CloudinaryImage
-                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778645989/Portfolio_compo4_bqpl5f.png"
-                    alt="Text POR"
+                    src={letter.src}
+                    alt={`Letter ${letter.id}`}
                     fill
-                    className="object-contain object-center"
-                    priority
+                    className="object-contain object-bottom"
                   />
-                </Floating>
-              </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
 
-              <div className="absolute inset-0 z-20 pointer-events-none">
-                <CloudinaryImage
-                  src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778645989/Portfolio_compo6_nwcrf4.png"
-                  alt="Võ Uyển My"
-                  fill
-                  className="object-contain object-center mt-8"
-                  priority
-                />
-              </div>
+          {/* LỚP 4: DÒNG CHỮ Ở ĐÁY MÀN HÌNH */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.8, duration: 0.8 }}
+            className="relative z-40 w-full max-w-300 mx-auto px-6 md:px-8 flex justify-between items-center text-[#d7427c] font-bold tracking-widest text-xs md:text-xl lg:text-2xl mt-auto"
+          >
+            <span>2026</span>
+            <span className="tracking-[0.2em] md:tracking-[0.4em] text-right">EVENT MARKETING</span>
+          </motion.div>
 
-              <div className="absolute inset-0 z-30 pointer-events-none">
-                <Floating delay={1}>
-                  <CloudinaryImage
-                    src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1779002705/Portfolio_compo5_y6leyt.png"
-                    alt="Text TFOLIO"
-                    fill
-                    className="object-contain object-center"
-                    priority
-                  />
-                </Floating>
-              </div>
-
-              {/* LỚP 5: TEXT 2026 & EVENT MARKETING */}
-              <div className="absolute bottom-2 sm:bottom-4 md:bottom-[8%] left-0 w-full z-40 flex justify-between items-end px-[5%] md:px-[15%] lg:px-[20%]">
-                <span className="text-pink-600 font-bold tracking-widest border border-pink-300 px-2 md:px-3 py-1 rounded text-[10px] sm:text-xs md:text-sm bg-[#f7e9c3]/30 backdrop-blur-sm">
-                  2026
-                </span>
-                <span className="text-pink-600 font-bold tracking-[0.2em] sm:tracking-[0.4em] md:tracking-[0.6em] text-[8px] sm:text-[10px] md:text-xs lg:text-sm border-b border-t border-pink-300 py-1 bg-[#f7e9c3]/30 backdrop-blur-sm">
-                  EVENT MARKETING
-                </span>
-              </div>
-
-            </div>
-          </FadeIn>
         </section>
 
         {/* =========================================
@@ -105,10 +123,10 @@ export default function Home() {
             ========================================= */}
         <section id="about" className="py-5 md:py-8 mb-5 md:mb-20 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
           <FadeIn>
-            <div className="flex flex-col items-center justify-center md:mb-16">
+            <div className="flex flex-col items-center justify-center md:mb-8">
 
               {/* Hàng 1: Icon Hoa + Tiêu đề */}
-              <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
+              <div className="flex items-center justify-center gap-3 md:gap-4 mb-2">
                 <div className="relative w-10 h-10 md:w-14 md:h-14 shrink-0">
                   <CloudinaryImage
                     src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png"

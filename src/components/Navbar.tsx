@@ -18,7 +18,7 @@ export default function Navbar() {
     ];
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 bg-[#f7e9c3]/90 backdrop-blur-md border-b border-[#6d6d6d]">
+        <header className="fixed top-0 left-0 w-full z-50 bg-[#fff5e7] backdrop-blur-md border-b border-[#6d6d6d]">
             <div className="w-full max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between md:justify-end">
 
                 {/* Logo/Tên hiển thị bên trái cho Mobile (Giúp Navbar đỡ trống) */}

@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7e9c3;
+  /* Cập nhật màu nền mới */
+  --background: #fff1e7;
   --foreground: #1c1917;
 }
 
@@ -19,7 +20,18 @@ html {
 
 body {
   background-color: var(--background);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+
+  /* Tạo hiệu ứng lưới caro (Graph Paper) với màu sọc #e8e4dd */
+  background-image:
+    linear-gradient(to right, #e8e4dd 1px, transparent 1px),
+    linear-gradient(to bottom, #e8e4dd 1px, transparent 1px);
+
+  /* Kích thước mỗi ô vuông. Bạn có thể thay đổi số này (VD: 50px 50px) để ô to hay nhỏ hơn */
+  background-size: 40px 40px;
+
+  /* Tùy chọn thêm: Định vị background bắt đầu từ góc trên cùng bên trái để đường kẻ luôn đều đặn */
+  background-position: top left;
+
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
