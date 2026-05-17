@@ -15,30 +15,50 @@ export default function InteractiveCamera({
     const [isBlack, setIsBlack] = useState(false);
 
     const handleCapture = () => {
-        if (isBlack) return; // Tránh bấm liên tục khi đang chớp đen
+        if (isBlack) return; // Chống spam click
 
-        // 1. Chớp màn hình đen
+        // 1. Chớp đen màn hình
         setIsBlack(true);
 
-        // 2. Chờ 300ms rồi đổi ảnh và sáng lại
+        // 2. Chờ 250ms (như tiếng tách của máy ảnh) rồi đổi ảnh
         setTimeout(() => {
             setIndex((prev) => (prev + 1) % images.length);
             setIsBlack(false);
-        }, 300);
+        }, 250);
     };
 
     return (
         <div
-            className="relative w-full aspect-video cursor-pointer group"
+            className="relative w-full aspect-video cursor-pointer group touch-manipulation drop-shadow-xl transition-transform duration-300 active:scale-95"
             onClick={handleCapture}
         >
-            {/* KHU VỰC 1: MÀN HÌNH BÊN TRONG (Hiển thị ảnh) */}
-            {/* Các chỉ số inset-[12%] hay inset-[15%] cần được bạn điều chỉnh 
-          sao cho vừa khít với cái lỗ hổng (màn hình) của tấm ảnh khung máy ảnh bạn sẽ cắt */}
-            <div className="absolute inset-[15%] bg-black rounded-sm md:rounded-md overflow-hidden z-0">
+            {/* KHU VỰC 1: MÁY ẢNH GỐC (Nằm dưới cùng - z-0) */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <CloudinaryImage
+                    src={cameraFrameUrl}
+                    alt="Digital Camera Frame"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            {/* KHU VỰC 2: MÀN HÌNH CHỨA ẢNH (Nằm đè lên trên - z-10) 
+                Vì màn hình máy ảnh Sony nằm lệch sang trái, chúng ta dùng inline-style
+                để ép 4 góc (top, bottom, left, right) cho vừa khít với cục màu đen.
+            */}
+            <div
+                className="absolute z-10 bg-black overflow-hidden rounded-xs md:rounded-sm"
+                style={{
+                    // BẠN HÃY TINH CHỈNH 4 CON SỐ % NÀY ĐỂ ẢNH LỌT VỪA KHÍT VÀO MÀN HÌNH NHÉ
+                    top: '18%',    // Đẩy từ trên xuống
+                    bottom: '22%', // Đẩy từ dưới lên
+                    left: '12%',   // Đẩy từ trái sang
+                    right: '35%'   // Đẩy từ phải sang (chừa khoảng trống cho cụm nút bấm)
+                }}
+            >
                 <motion.div
                     animate={{ opacity: isBlack ? 0 : 1 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.15 }}
                     className="w-full h-full relative"
                 >
                     <CloudinaryImage
@@ -50,21 +70,11 @@ export default function InteractiveCamera({
                 </motion.div>
             </div>
 
-            {/* KHU VỰC 2: KHUNG MÁY ẢNH (Phủ lên trên cùng) */}
-            {/* Tấm ảnh này phải được đục lỗ trong suốt ở phần màn hình */}
-            <div className="absolute inset-0 z-10 pointer-events-none drop-shadow-xl transition-transform duration-300 group-hover:scale-[1.02]">
-                <CloudinaryImage
-                    src={cameraFrameUrl}
-                    alt="Digital Camera Frame"
-                    fill
-                    className="object-contain"
-                />
+            {/* Chữ gợi ý */}
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-bold text-pink-500 animate-bounce whitespace-nowrap">
+                Click / Tap to capture 📸
             </div>
 
-            {/* Nút gợi ý bấm (Chỉ hiện nhấp nháy mờ mờ để người dùng biết có thể chạm) */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs md:text-sm font-bold text-pink-500 animate-bounce">
-                Tap to capture 📸
-            </div>
         </div>
     );
 }

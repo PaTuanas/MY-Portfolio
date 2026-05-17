@@ -14,20 +14,19 @@ export default function TradingCard({
             initial={{ rotate: rotate, y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            whileHover={{
-                scale: 1.05,
-                rotate: 0,
-                y: -15,
-                transition: { type: "spring", stiffness: 300, damping: 20 }
-            }}
-            className="relative w-full aspect-3/4 cursor-pointer group transition-shadow duration-300"
-        >
 
-            {/* 
-         CHÌA KHÓA: LỚP MẶT NẠ (CSS MASK) 
-         Dùng radial-gradient để tạo một vùng "trong suốt" (transparent) chiếm 45% ở ngay giữa tâm thẻ. 
-         Vùng "đen" (black) ở viền là nơi ánh sáng được phép hiển thị.
-      */}
+            whileHover={{
+                scale: 1.5, // Tăng scale lớn hẳn lên
+                rotate: 0, // Đứng thẳng lại
+                y: -30, // Nhích lên cao hơn
+                zIndex: 50, // QUAN TRỌNG: Nổi đè lên các thẻ xung quanh
+                transition: { type: "spring", stiffness: 500, damping: 25 }
+            }}
+
+            // Thêm relative z-0 mặc định để zIndex khi hover hoạt động
+            className="relative z-0 w-full aspect-3/4 rounded-3xl cursor-pointer group shadow-sm hover:shadow-2xl transition-all duration-300"
+        >
+            {/* Lớp mặt nạ ánh sáng */}
             <div
                 className="absolute inset-0 z-20 pointer-events-none rounded-3xl overflow-hidden"
                 style={{
@@ -35,12 +34,11 @@ export default function TradingCard({
                     WebkitMaskImage: "radial-gradient(ellipse at center, transparent 45%, black 80%)"
                 }}
             >
-                {/* Vệt sáng quét qua (Đã giảm độ chói xuống white/30) */}
-                <div className="absolute top-0 left-[-150%] w-[150%] h-[150%] bg-linear-to-r from-transparent via-white/50 to-transparent -rotate-45 group-hover:translate-x-[250%] transition-transform duration-2000 ease-in-out" />
+                <div className="absolute top-0 left-[-150%] w-[150%] h-[150%] bg-linear-to-r from-transparent via-white/30 to-transparent -rotate-45 group-hover:translate-x-[250%] transition-transform duration-1000 ease-in-out" />
             </div>
 
-            {/* KHUNG CHỨA ẢNH GỐC */}
-            <div className="absolute inset-0 z-10 rounded-3xl overflow-hidden backdrop-blur-sm">
+            {/* Nội dung ảnh */}
+            <div className="absolute inset-0 z-10 rounded-3xl overflow-hidden bg-white/50 backdrop-blur-sm">
                 {children}
             </div>
 
