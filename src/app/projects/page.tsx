@@ -34,7 +34,7 @@ export default function ProjectsPage() {
                 {/* Header Trang Projects */}
                 <FadeIn>
                     <div className="mb-8 md:mb-12 flex flex-col items-center">
-                        <h1 className="text-5xl md:text-7xl font-extrabold tracking-wide text-[#e84976] mb-4 text-center">
+                        <h1 className="text-5xl md:text-7xl font-spray tracking-wide text-[#e84976] mb-4 text-center">
                             All Projects
                         </h1>
                         <p className="text-center text-[#3a5d8f] text-base md:text-xl font-medium max-w-2xl">
