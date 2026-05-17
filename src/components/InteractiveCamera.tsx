@@ -50,10 +50,10 @@ export default function InteractiveCamera({
                 className="absolute z-10 bg-black overflow-hidden rounded-xs md:rounded-sm"
                 style={{
                     // BẠN HÃY TINH CHỈNH 4 CON SỐ % NÀY ĐỂ ẢNH LỌT VỪA KHÍT VÀO MÀN HÌNH NHÉ
-                    top: '18%',    // Đẩy từ trên xuống
-                    bottom: '22%', // Đẩy từ dưới lên
-                    left: '12%',   // Đẩy từ trái sang
-                    right: '35%'   // Đẩy từ phải sang (chừa khoảng trống cho cụm nút bấm)
+                    top: '23%',    // Đẩy từ trên xuống
+                    bottom: '15.5%', // Đẩy từ dưới lên
+                    left: '13%',   // Đẩy từ trái sang
+                    right: '33%' // Đẩy từ phải sang (chừa khoảng trống cho cụm nút bấm)
                 }}
             >
                 <motion.div

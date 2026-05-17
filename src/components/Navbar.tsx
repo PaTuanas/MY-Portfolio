@@ -23,7 +23,7 @@ export default function Navbar() {
 
                 {/* Logo/Tên hiển thị bên trái cho Mobile (Giúp Navbar đỡ trống) */}
                 <div className="md:hidden font-spray text-xl text-[#d7427c] tracking-wider">
-                    Mimi
+                    {"Mimi's portfolio"}
                 </div>
 
                 {/* === NÚT HAMBURGER (CHỈ HIỆN TRÊN MOBILE) === */}

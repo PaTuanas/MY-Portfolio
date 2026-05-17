@@ -130,10 +130,13 @@ export default function Home() {
             <div className="w-full max-w-md lg:max-w-lg mx-auto flex flex-col items-center">
 
               <InteractiveCamera
-                cameraFrameUrl="https://res.cloudinary.com/dyavs1cdn/image/upload/v1779004163/Portfolio_compo34_xy1xg7.png" // Khung rỗng đã đục lỗ
+                cameraFrameUrl="https://res.cloudinary.com/dyavs1cdn/image/upload/v1779004163/Portfolio_compo34_xy1xg7.png"
                 images={[
-                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778663439/Portfolio_compo8_krakic.png",
-                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1778687699/Portfolio_compo11_oqaw8b.png"
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779008922/5_dpmo9a.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779008922/4_lmkg2q.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779008921/1_fxrqfl.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779008920/3_mt5yzt.png",
+                  "https://res.cloudinary.com/dyavs1cdn/image/upload/v1779008921/2_nsubs6.png",
                 ]}
               />
 
@@ -157,7 +160,7 @@ export default function Home() {
         <section id="education" className="py-5 md:py-8 mb-10 px-6 md:px-12 lg:px-24 w-full max-w-7xl mx-auto">
 
           <FadeIn>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-4 py-8 md:py-0">
               <div className="relative w-12 h-12 md:w-16 md:h-16">
                 <CloudinaryImage src="https://res.cloudinary.com/dyavs1cdn/image/upload/v1778664663/Portfolio_compo9_chaahj.png" alt="Flower Decor" fill className="object-contain drop-shadow-md hover:rotate-12 transition-transform" />
               </div>
@@ -621,7 +624,7 @@ export default function Home() {
               {/* Cột trái: Lời chào và Thông tin liên hệ */}
               <div className="flex flex-col gap-6 md:gap-8 w-full md:w-2/3">
                 <p className="text-[#3a5d8f] text-sm sm:text-base md:text-xl font-medium text-center md:text-left leading-relaxed">
-                  Let's create something amazing together! Feel free to reach out to me for collaborations, campaigns, or just a friendly chat.
+                  {"Let's create something amazing together! Feel free to reach out to me for collaborations, campaigns, or just a friendly chat."}
                 </p>
 
                 {/* Khu vực thông tin (Bỏ w-fit đi để nó không bị tràn) */}
